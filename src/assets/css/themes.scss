@@ -1,0 +1,29 @@
+/**
+*   _themes.scss
+*   当HTML的data-skin为blue时，样式引用blue
+*   data-skin为其他值时，就采用对应的默认样式
+*   这里我定义了5套主题方案，想要再多只需在`$themes`里加就行了
+*   注意一点是，每套配色方案里的key可以自定义但必须一致，不然就会混乱
+*   这是定义好的对应变量的颜色（需要什么都可以自行定义并引用）：
+*   字体： font_color1
+*   背景： background_color1
+*   边框： border_color1
+**/
+
+$themes: (
+  light: (
+    font_active_303133_ffd04b: #303133,
+    font_color_909399_fff: #909399,
+    font_hover_000_fff: #000,
+    background_color_409eff_ffd04b: #409eff,
+    background_color_transparent_545c64: transparent
+  ),
+  dark: (
+    font_active_303133_ffd04b: #ffd04b,
+    font_color_909399_fff: #fff,
+    font_hover_000_fff: #fff,
+    background_color_409eff_ffd04b: #ffd04b,
+    background_color_transparent_545c64: #545c64 
+  ),
+  
+);

@@ -1,5 +1,18 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "compilerOptions": {
+    "incremental": true, // TS编译器在第一次编译之后会生成一个存储编译信息的文件，第二次编译会在第一次的基础上进行增量编译，可以提高编译的速度
+    "jsx": "preserve", // jsx模板解析
+    "noImplicitAny": true, // 不允许隐式的 any 类型
+    "removeComments": true, // 删除注释
+    "allowJs": false, // 允许编译器编译JS，JSX文件
+    "esModuleInterop": true,  // 允许导入额外的ts文件支持
+    "skipLibCheck": true, // 所有的声明文件（*.d.ts）的类型检查, 解决：打包不报错
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@build/*": ["build/*"],
+    },
+  },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
@@ -8,16 +21,5 @@
     "mock/*.ts",
     "vite.config.ts"
   ],
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-  },
-
-  "references": [
-    {
-      "path": "./tsconfig.config.json"
-    }
-  ]
+  "exclude": ["node_modules", "dist", "**/*.js"]
 }

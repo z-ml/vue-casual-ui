@@ -7,9 +7,7 @@ import {
   defineConfig,
   loadEnv
 } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
-import viteCompression from 'vite-plugin-compression';
+import { getPluginsList } from "./build/plugins";
 
 // https://vitejs.dev/config/
 export default defineConfig(({
@@ -20,10 +18,7 @@ export default defineConfig(({
   // 设置第三个参数为 '' 来加载所有环境变量，而不管是否有 `VITE_` 前缀。
   const env = loadEnv(mode, process.cwd(), '')
   return {
-    plugins: [vue(), vueJsx(),
-      // 打包压缩，主要是本地gzip，如果服务器配置压缩也可以
-      viteCompression(),
-    ],
+    plugins: getPluginsList(),
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src',
